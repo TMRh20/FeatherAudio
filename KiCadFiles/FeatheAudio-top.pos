@@ -1,0 +1,21 @@
+### Footprint positions - created on 2025-12-30T07:40:21-0600 ###
+### Printed by KiCad version 9.0.6
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val                Package                                            PosX       PosY       Rot  Side
+BT1       Battery            BatteryHolder_Keystone_1058_1x2032             137.0000   -97.0000  180.0000  top
+BT2       Battery            BatteryHolder_Keystone_2479_3xAAA              110.7800  -117.0000    0.0000  top
+C1        1uF                C_0603_1608Metric                              117.0000   -96.5000    0.0000  top
+C2        220pF              CP_EIA-1608-08_AVX-J                           117.0100   -98.5000    0.0000  top
+J1        Amp_Socket_1x7     PinSocket_1x07_P2.54mm_Vertical                121.5000   -84.5800  180.0000  top
+J3        Conn_01x02_Socket  JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal        160.0000   -52.9500  180.0000  top
+J4        XIAO_LEFT          PinSocket_1x16_P2.54mm_Vertical_SMD_Pin1Left   127.6500   -65.8500    0.0000  top
+J5        XIAO_RIGHT         PinSocket_1x12_P2.54mm_Vertical_SMD_Pin1Left   147.8500   -70.8500    0.0000  top
+J6        Micro_SD_Card      microSD_HC_Hirose_DM3AT-SF-PEJM5               114.5300   -54.9650  180.0000  top
+MK1       SPH0645LM4H        Knowles_SPH0645LM4H-6_3.5x2.65mm               112.3380   -97.7900    0.0000  top
+R1        68                 R_0402_1005Metric                              108.9400   -96.8100    0.0000  top
+R2        10k                R_0402_1005Metric                              108.9400   -98.5600    0.0000  top
+SW1       SW_Push            SW_Tactile_SPST_Angled_PTS645Vx83-2LFS         161.5375  -101.2250  -90.0000  top
+SW2       SW_Push            SW_Tactile_SPST_Angled_PTS645Vx83-2LFS         161.5000   -70.7500  -90.0000  top
+SW3       SW_Push            SW_Tactile_SPST_Angled_PTS645Vx83-2LFS         161.5375   -91.2250  -90.0000  top
+## End
