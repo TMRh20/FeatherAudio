@@ -1,14 +1,14 @@
 # FeatherAudio
 Custom Circuit Board for Feather 52840
 
-Designed by TMRh20, Sponsored by PCBWay.com
+Designed by TMRh20, Sponsored by [PCBWay](https://pcbway.com)
 <br>
 ![pcbwayimg.png](Images/pcbwayimg.png)
 <br>
-Requirements:
-1 x Custom Circuit Board <br>
-1 x Feather 52840 based board (Feather 52840 Express, Feather 52840 Sense) <br>
-1 x Max98357A I2S Amplifier <br>
+Requirements:<br>
+2 x Custom Circuit Board <br>
+2 x Feather 52840 based board (Feather 52840 Sense) <br>
+2 x Max98357A I2S Amplifier <br>
 2 x 4 to 8 Ohm Speaker <br>
 2 x 2032 3.3v Coin Battery <br>
 6 x AAA Battery <br>
