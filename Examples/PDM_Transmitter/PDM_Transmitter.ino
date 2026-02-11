@@ -12,14 +12,6 @@ uint8_t address[][6] = { "1Node", "2Node" };
     #include "Adafruit_TinyUSB.h"
 #endif
 
-/*********************************************************/
-/* Tested with MAX98357A I2S breakout on XIAO 52840 Sense
-/* BCLK connected to Arduino D1 (p0.03)
-/* LRCK connected to Arduino D3 (p0.29)
-/* DIN  connected to Arduino D5 (p0.05)
-/* SD   connected to Arduino D6 (p1.11)
-/*********************************************************/
-
 void setup() {
 
 
@@ -34,7 +26,7 @@ void setup() {
 
   aaAudio.I2S_PIN_LRCK = 28; // WS
   
-  aaAudio.begin(1,0);  //Setup aaAudio using DAC & I2S
+  aaAudio.begin(1,0);  //Setup aaAudio using PDM microphone
   aaAudio.adcBitsPerSample = 16; // 16-bit samples input from PDM
   aaAudio.dacBitsPerSample = 16; // 16-bit samples output to I2S
   aaAudio.setSampleRate(32000);  // 32kHz

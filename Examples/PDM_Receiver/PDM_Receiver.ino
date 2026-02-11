@@ -1,6 +1,5 @@
-/* Example of receiving audio over radio and playing it back. 
- * Note: This example uses PWM output. Modify the USE_I2S #define
- * below to enable I2S output.
+/* Example of receiving audio over radio and playing it back.
+ *
  */ 
 
 #include <AutoAnalogAudio.h>
@@ -11,7 +10,6 @@ nrf_to_nrf radio;
 
 uint8_t address[][6] = { "1Node", "2Node" };
 #define BUFFER_SIZE 124
-#define USE_I2S 0 // Change to 1 to enable I2S output instead of PWM
 
 void setup() {
 
@@ -28,18 +26,18 @@ void setup() {
   Serial.println("Analog Audio Begin");
   aaAudio.I2S_PIN_SCK = 3; //BCLK
   aaAudio.I2S_PIN_LRCK = 28; //WS
-  aaAudio.begin(0, 2);  //Setup aaAudio using DAC and PWM. Change the third value to a 1 to enable I2S
+  aaAudio.begin(0, 2);  //Setup aaAudio using I2S output
 
-  //Setup for audio: Use 8-bit, mono WAV files @ 16kHz
-  aaAudio.dacBitsPerSample = 16;    // 8-bit
-  aaAudio.setSampleRate(32000, 0); // 16khz, mono
+  //Setup for audio: Use 16-bit, mono WAV files @ 32kHz
+  aaAudio.dacBitsPerSample = 16;    // 16-bit
+  aaAudio.setSampleRate(32000, 0); // 32khz, mono
 
 
 }
 
 void loop() {
   
-  if(radio.available()){ //Serial.println("x");
+  if(radio.available()){
     radio.read(&aaAudio.dacBuffer16[0],BUFFER_SIZE);
     aaAudio.feedDAC(0,BUFFER_SIZE/2);
   }
