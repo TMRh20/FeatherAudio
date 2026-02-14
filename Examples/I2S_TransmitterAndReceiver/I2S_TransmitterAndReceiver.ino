@@ -96,7 +96,7 @@ void setup() {
   radio.setChannel(RADIO_CHANNEL);
   radio.setPayloadSize(BUFFER_SIZE);
   radio.setAutoAck(0);
-  radio.setDataRate(NRF_2MBPS);
+  radio.setDataRate(NRF_1MBPS);
   radio.openWritingPipe(address);
   radio.openReadingPipe(1, address);
   radio.startListening();
