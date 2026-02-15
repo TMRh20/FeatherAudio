@@ -986,7 +986,7 @@
 				)
 			)
 		)
-		(property "Part Number" "61301211821 "
+		(property "Part Number" "  4217-CSHC121-1202A001C1AC-ND   https://www.greenconn.com/Upload/Products/drawing-cshc121.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2157,7 +2157,7 @@
 				)
 			)
 		)
-		(property "Part Number" "61301611821 "
+		(property "Part Number" "DS1023-16-1*16B81XBX1 work?  https://www.tme.eu/en/details/ds1023-16-1x16tx1/pin-headers/connfly/ds1023-16-1-16b81xbx1/"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3175,7 +3175,7 @@
 				)
 			)
 		)
-		(property "Part Number" "C2012X7S2A105K125AE - Package 0805"
+		(property "Part Number" "GRM188D72A105KE01D（100V 1uF X7T 10% 0603）"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -4638,7 +4638,7 @@
 				)
 			)
 		)
-		(property "Part Number" "25121WJ0680T4E （2512 68R 5% 1W）"
+		(property "Part Number" "FRC0402J680 TS（68R 5% 62.5mW 0402）"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6069,7 +6069,7 @@
 				)
 			)
 		)
-		(property "Part Number" "SMF310KJT"
+		(property "Part Number" "RC0402FR-0710KL（0402 10K 1%）"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
