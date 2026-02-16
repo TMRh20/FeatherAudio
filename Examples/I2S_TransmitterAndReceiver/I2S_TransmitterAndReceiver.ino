@@ -39,7 +39,7 @@ volatile bool txToggled = false;
 /*****************************************/
 
 void volUp() {
-  volumeControl += 0.3;         // Raise Volume
+  volumeControl += 0.5;         // Raise Volume
   if (digitalRead(9) == LOW) {  // If both pins are pressed, volDown pressed first
     micActive = true;           // Enable the microphone until PTT is pressed
     setupInput();               // Setup audio for the microphone
@@ -47,7 +47,7 @@ void volUp() {
 }
 /*****************************************/
 void volDown() {
-  volumeControl -= 0.3;       // Lower volume
+  volumeControl -= 0.5;       // Lower volume
   if (volumeControl < 0.1) {  // If volume setting too low set to 0.0
     volumeControl = 0.0;
   }
@@ -131,14 +131,6 @@ void loop() {
     }
     aaAudio.getADC(BUFFER_SIZE / 2);  // Get data from I2S mic, will get 18-bit samples in a 32-bit format, but output 16-bit samples over the radio
 
-#if AUDIO_DEBUG > 0  // If debug is enabled, print a sample from each batch of samples
-    int32_t sample = 0;
-    memcpy(&sample, &aaAudio.adcBuffer16[0], 4);
-    Serial.print((int16_t)sample >> 2);
-    Serial.print(",");
-    Serial.println(0);
-#endif
-
     uint16_t counter2 = 0;
     for (int i = 0; i < BUFFER_SIZE / 2; i++) {
       memcpy(&audioBuffer[i], &aaAudio.adcBuffer16[counter2], 4);  // Loop to copy data from 16-bit incoming buffer to a 32-bit integer buffer
@@ -146,12 +138,15 @@ void loop() {
       memcpy(&aaAudio.dacBuffer16[i], &audioBuffer[i], 2);         // Copy to 16-bit output buffer from 32-bit format
       counter2 += 2;
     }
+#if AUDIO_DEBUG > 0
     int16_t test = 0;
-    memcpy(&test,&aaAudio.dacBuffer16[0],2);
+    memcpy(&test, &aaAudio.dacBuffer16[0], 2);
     Serial.print(test);
     Serial.print(",");
-    Serial.println(0);
-
+    Serial.print(-5000);
+    Serial.print(",");
+    Serial.println(5000);
+#endif
     radio.startWrite(&aaAudio.dacBuffer16[0], BUFFER_SIZE, 1);  // Send 62 16-bit samples over the radio (124 bytes)
 
   } else {
@@ -171,19 +166,20 @@ void loop() {
       }
 #if AUDIO_DEBUG > 0
       int16_t sampleOut = 0;
-      memcpy(&sampleOut,&aaAudio.dacBuffer16[0], 2);
+      memcpy(&sampleOut, &aaAudio.dacBuffer16[0], 2);
       Serial.print(sampleOut);  // Print one sample from each batch if data received & debug enabled
       Serial.print(",");
-      Serial.println(0);
-#endif      
+      Serial.print(-10000);
+      Serial.print(",");
+      Serial.println(10000);
+#endif
       aaAudio.feedDAC(0, BUFFER_SIZE / 2);  // Feed the I2S amplifier with the actual number of samples
       lastRadio = millis();                 // Timer to silence the radio & toggle the LED off/on
       digitalWrite(LED_BUILTIN, HIGH);      // Toggle red LED on
     } else {
-      if (millis() - lastRadio > 100) {               // If no data for 100ms
-        memset(aaAudio.dacBuffer16, 0, BUFFER_SIZE);  // Set our output buffer to all 0s
-        aaAudio.feedDAC(0, BUFFER_SIZE / 2);          // Feed it into the I2S peripheral
-        digitalWrite(LED_BUILTIN, LOW);               // Turn off the red LED
+      if (millis() - lastRadio > 100) {  // If no data for 100ms
+        aaAudio.disableDAC();
+        digitalWrite(LED_BUILTIN, LOW);  // Turn off the red LED
       }
     }
   }
